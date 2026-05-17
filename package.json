@@ -10,9 +10,9 @@
     "generate-fallback": "node scripts/generate-fallback.mjs"
   },
   "dependencies": {
-    "@astrojs/preact": "^4.0.0",
-    "@vite-pwa/astro": "^0.5.0",
-    "astro": "^5.0.0",
+    "@astrojs/preact": "^5.1.3",
+    "@vite-pwa/astro": "^1.2.0",
+    "astro": "^6.3.3",
     "canvas-confetti": "^1.9.3",
     "preact": "^10.24.0"
   },

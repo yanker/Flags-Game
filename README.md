@@ -74,7 +74,7 @@ Los archivos listos para desplegar quedan en `dist/`.
 
 | Tecnología | Uso |
 |---|---|
-| [Astro 5](https://astro.build) | Framework estático |
+| [Astro 6](https://astro.build) | Framework estático |
 | [Preact](https://preactjs.com) | Isla interactiva (game) |
 | [@vite-pwa/astro](https://vite-pwa-org.netlify.app) | PWA + Service Worker |
 | [flagcdn.com](https://flagcdn.com) | Imágenes de banderas |
