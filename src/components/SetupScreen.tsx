@@ -135,6 +135,10 @@ export function SetupScreen({ initial, onDone }: SetupScreenProps) {
       <button class="btn-primary" onClick={handleStart}>
         ¡Siguiente! →
       </button>
+
+      <div style="text-align: center; margin-top: 20px;">
+        Hecho con ❤️ para mis hijas Mariela y Celia
+      </div>
     </div>
   );
 }
