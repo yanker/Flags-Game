@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Game } from '../components/Game';
+import { loadCountries } from '../data/loadCountries';
+
+const countries = await loadCountries();
+---
+<Layout>
+  <main id="app">
+    <Game client:load countries={countries} />
+  </main>
+</Layout>

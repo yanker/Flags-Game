@@ -1,0 +1,23 @@
+{
+  "name": "flags-game",
+  "version": "1.0.0",
+  "description": "Juego de adivinar banderas para niños — desplegable en Vercel",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "generate-fallback": "node scripts/generate-fallback.mjs"
+  },
+  "dependencies": {
+    "@astrojs/preact": "^4.0.0",
+    "@vite-pwa/astro": "^0.5.0",
+    "astro": "^5.0.0",
+    "canvas-confetti": "^1.9.3",
+    "preact": "^10.24.0"
+  },
+  "devDependencies": {
+    "@types/canvas-confetti": "^1.6.4",
+    "typescript": "^5.6.0"
+  }
+}
