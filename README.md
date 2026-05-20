@@ -84,6 +84,12 @@ Los archivos listos para desplegar quedan en `dist/`.
 
 ## Changelog
 
+### v1.3.0 — 2026-05-20
+- **Feat:** Detección de nuevas versiones en la PWA instalada. Cuando se publica una actualización, aparece un banner en la app con el botón "Actualizar" para recargar al instante.
+
+### v1.2.0 — 2026-05-20
+- **Feat:** Se añaden 6 países que faltaban para llegar a 195: Palestina, Kosovo, Taiwán, Islas Cook, Niue y Sahara Occidental.
+
 ### v1.1.0 — 2026-05-20
 - **Fix:** Las banderas ya no se repiten hasta haber visto todas las disponibles en el pool. Se implementó un sistema de deck barajado sin reposición: el juego recorre todos los países en orden aleatorio y solo vuelve a barajar cuando los agota.
 

@@ -187,5 +187,11 @@
   {"code":"vn","name":"Vietnam","region":"Asia","population":97338579},
   {"code":"ye","name":"Yemen","region":"Asia","population":33696614},
   {"code":"zm","name":"Zambia","region":"Africa","population":18383955},
-  {"code":"zw","name":"Zimbabue","region":"Africa","population":14862924}
+  {"code":"zw","name":"Zimbabue","region":"Africa","population":14862924},
+  {"code":"ps","name":"Palestina","region":"Asia","population":5227193},
+  {"code":"xk","name":"Kosovo","region":"Europe","population":1775378},
+  {"code":"tw","name":"Taiwán","region":"Asia","population":23503349},
+  {"code":"ck","name":"Islas Cook","region":"Oceania","population":17564},
+  {"code":"nu","name":"Niue","region":"Oceania","population":1626},
+  {"code":"eh","name":"Sahara Occidental","region":"Africa","population":575986}
 ]

@@ -7,7 +7,7 @@ export default defineConfig({
   integrations: [
     preact({ compat: false }),
     VitePWA({
-      registerType: 'autoUpdate',
+      registerType: 'prompt',
       manifest: {
         name: 'Banderas — Juego de Banderas',
         short_name: 'Banderas',

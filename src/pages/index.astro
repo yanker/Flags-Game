@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Game } from '../components/Game';
+import { UpdateBanner } from '../components/UpdateBanner';
 import { loadCountries } from '../data/loadCountries';
 
 const countries = await loadCountries();
@@ -9,4 +10,5 @@ const countries = await loadCountries();
   <main id="app">
     <Game client:load countries={countries} />
   </main>
+  <UpdateBanner client:load />
 </Layout>
