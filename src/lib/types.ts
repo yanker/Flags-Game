@@ -49,4 +49,5 @@ export interface GameState {
   questionsAnswered: number;
   totalQuestions: number;
   currentQuestion: Question | null;
+  questionDeck: Country[]; // remaining countries in shuffled order; refilled when empty
 }

@@ -1,7 +1,7 @@
 import { h } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 import type { Country, GameState, GameSettings, Player, Screen } from '../lib/types';
-import { buildPool, buildQuestion, updatePlayerStats, resetPlayerStats } from '../lib/game';
+import { buildPool, drawNextQuestion, updatePlayerStats, resetPlayerStats } from '../lib/game';
 import { saveState, loadState, clearState } from '../lib/storage';
 import { SetupScreen } from './SetupScreen';
 import { PlayersScreen } from './PlayersScreen';
@@ -30,6 +30,7 @@ function initState(countries: Country[]): GameState {
     questionsAnswered: 0,
     totalQuestions: 0,
     currentQuestion: null,
+    questionDeck: [],
   };
 }
 
@@ -38,7 +39,7 @@ export function Game({ countries }: GameProps) {
     // Try to restore session
     const saved = loadState();
     if (saved && saved.screen === 'play' && saved.currentQuestion) {
-      return saved;
+      return { ...saved, questionDeck: saved.questionDeck ?? [] };
     }
     return initState(countries);
   });
@@ -62,7 +63,7 @@ export function Game({ countries }: GameProps) {
     const { settings } = state;
     const pool = buildPool(countries, settings.level);
     const totalQuestions = settings.rounds * players.length;
-    const question = buildQuestion(pool, settings.level);
+    const { question, deck } = drawNextQuestion(pool, [], settings.level);
     setState({
       screen: 'play',
       settings,
@@ -72,6 +73,7 @@ export function Game({ countries }: GameProps) {
       questionsAnswered: 0,
       totalQuestions,
       currentQuestion: question,
+      questionDeck: deck,
     });
   }
 
@@ -102,7 +104,7 @@ export function Game({ countries }: GameProps) {
       // Round advances when we wrap around from last player back to first
       const nextRound = nextPlayerIndex === 0 ? prev.currentRound + 1 : prev.currentRound;
       const pool = buildPool(countries, prev.settings.level);
-      const nextQuestion = buildQuestion(pool, prev.settings.level);
+      const { question: nextQuestion, deck: nextDeck } = drawNextQuestion(pool, prev.questionDeck, prev.settings.level);
 
       return {
         ...prev,
@@ -111,6 +113,7 @@ export function Game({ countries }: GameProps) {
         currentRound: nextRound,
         questionsAnswered: nextQA,
         currentQuestion: nextQuestion,
+        questionDeck: nextDeck,
       };
     });
   }
@@ -122,7 +125,7 @@ export function Game({ countries }: GameProps) {
       const players = resetPlayerStats(prev.players);
       const pool = buildPool(countries, settings.level);
       const totalQuestions = settings.rounds * players.length;
-      const question = buildQuestion(pool, settings.level);
+      const { question, deck } = drawNextQuestion(pool, [], settings.level);
       return {
         screen: 'play',
         settings,
@@ -132,6 +135,7 @@ export function Game({ countries }: GameProps) {
         questionsAnswered: 0,
         totalQuestions,
         currentQuestion: question,
+        questionDeck: deck,
       };
     });
   }

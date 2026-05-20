@@ -29,7 +29,7 @@ function pickRandom<T>(arr: T[]): T {
   return arr[rng(arr.length)];
 }
 
-function shuffle<T>(arr: T[]): T[] {
+export function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
     const j = rng(i + 1);
@@ -38,17 +38,17 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-export function buildQuestion(pool: Country[], level: Difficulty): Question {
+export function buildQuestion(pool: Country[], level: Difficulty, correct?: Country): Question {
   if (pool.length < 3) throw new Error('Pool demasiado pequeño para generar pregunta');
 
-  // Pick correct country
-  const correct = pickRandom(pool);
-  const remaining = pool.filter(c => c.code !== correct.code);
+  // Use pre-determined correct country (from deck) or pick at random
+  const correctCountry = correct ?? pickRandom(pool);
+  const remaining = pool.filter(c => c.code !== correctCountry.code);
 
   // Prefer same-region distractors for medio/dificil
   let distractors: Country[] = [];
   if (level !== 'facil') {
-    const sameRegion = remaining.filter(c => c.region === correct.region);
+    const sameRegion = remaining.filter(c => c.region === correctCountry.region);
     if (sameRegion.length >= 2) {
       // pick 2 from same region
       const shuffled = shuffle(sameRegion);
@@ -66,10 +66,23 @@ export function buildQuestion(pool: Country[], level: Difficulty): Question {
     distractors = shuffled.slice(0, 2);
   }
 
-  const options = shuffle([correct, distractors[0], distractors[1]]);
-  const correctIndex = options.findIndex(c => c.code === correct.code);
+  const options = shuffle([correctCountry, distractors[0], distractors[1]]);
+  const correctIndex = options.findIndex(c => c.code === correctCountry.code);
 
-  return { country: correct, options, correctIndex };
+  return { country: correctCountry, options, correctIndex };
+}
+
+// ─── Deck (no-repeat) ────────────────────────────────────────────────────────
+
+export function drawNextQuestion(
+  pool: Country[],
+  deck: Country[],
+  level: Difficulty
+): { question: Question; deck: Country[] } {
+  const d = deck.length > 0 ? deck : shuffle([...pool]);
+  const correct = d[0];
+  const newDeck = d.slice(1);
+  return { question: buildQuestion(pool, level, correct), deck: newDeck };
 }
 
 // ─── Scoring ─────────────────────────────────────────────────────────────────

@@ -82,6 +82,14 @@ Los archivos listos para desplegar quedan en `dist/`.
 | WebAudio API | Sonidos sintetizados |
 | canvas-confetti | Animación de confeti |
 
+## Changelog
+
+### v1.1.0 — 2026-05-20
+- **Fix:** Las banderas ya no se repiten hasta haber visto todas las disponibles en el pool. Se implementó un sistema de deck barajado sin reposición: el juego recorre todos los países en orden aleatorio y solo vuelve a barajar cuando los agota.
+
+### v1.0.0 — 2025-05-13
+- Versión inicial del juego.
+
 ## Estructura del proyecto
 
 ```
