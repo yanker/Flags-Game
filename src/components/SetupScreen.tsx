@@ -38,7 +38,7 @@ export function SetupScreen({ initial, onDone }: SetupScreenProps) {
   return (
     <div class="screen setup-screen">
       <h1 class="game-title">🌍 Banderas</h1>
-      <p class="game-subtitle">¿Cuánto sabes del mundo?</p>
+      <p class="game-subtitle">¿Cuánto sabes del mundo? 🌐</p>
 
       <section class="setup-section">
         <h2>Dificultad</h2>
