@@ -139,6 +139,9 @@ export function SetupScreen({ initial, onDone }: SetupScreenProps) {
       <div style="text-align: center; margin-top: 20px;">
         Hecho con ❤️ para mis hijas Mariela y Celia
       </div>
+      <div style="text-align: center; margin-top: 6px; font-size: 0.72rem; opacity: 0.45;">
+        v1.1.0 · Actualizado 20/05/2026
+      </div>
     </div>
   );
 }
