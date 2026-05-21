@@ -38,7 +38,7 @@ export function SetupScreen({ initial, onDone }: SetupScreenProps) {
   return (
     <div class="screen setup-screen">
       <h1 class="game-title">🌍 Banderas</h1>
-      <p class="game-subtitle">¿Cuánto sabes del mundo? 🌐</p>
+      <p class="game-subtitle">¿Cuánto sabes del mundo?</p>
 
       <section class="setup-section">
         <h2>Dificultad</h2>
@@ -140,7 +140,7 @@ export function SetupScreen({ initial, onDone }: SetupScreenProps) {
         Hecho con ❤️ para mis hijas Mariela y Celia
       </div>
       <div style="text-align: center; margin-top: 6px; font-size: 0.72rem; opacity: 0.45;">
-        v1.3.0 · Actualizado 20/05/2026
+        v1.3.1 · Actualizado 21/05/2026
       </div>
     </div>
   );

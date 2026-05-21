@@ -84,6 +84,9 @@ Los archivos listos para desplegar quedan en `dist/`.
 
 ## Changelog
 
+### v1.3.1 — 2026-05-21
+- **Fix:** Revertido cambio de prueba del subtítulo (test de actualización PWA).
+
 ### v1.3.0 — 2026-05-20
 - **Feat:** Detección de nuevas versiones en la PWA instalada. Cuando se publica una actualización, aparece un banner en la app con el botón "Actualizar" para recargar al instante.
 
