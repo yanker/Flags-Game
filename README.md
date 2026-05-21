@@ -84,6 +84,9 @@ Los archivos listos para desplegar quedan en `dist/`.
 
 ## Changelog
 
+### v1.3.2 — 2026-05-21
+- **Fix:** El banner de actualización ahora se activa cuando la PWA instalada vuelve al primer plano (visibilitychange) y cada 60 segundos, en lugar de esperar solo a la navegación.
+
 ### v1.3.1 — 2026-05-21
 - **Fix:** Revertido cambio de prueba del subtítulo (test de actualización PWA).
 
