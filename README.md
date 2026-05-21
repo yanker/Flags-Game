@@ -84,6 +84,9 @@ Los archivos listos para desplegar quedan en `dist/`.
 
 ## Changelog
 
+### v1.3.3 — 2026-05-21
+- **Test:** Verificación del sistema de actualización automática en 60 segundos.
+
 ### v1.3.2 — 2026-05-21
 - **Fix:** El banner de actualización ahora se activa cuando la PWA instalada vuelve al primer plano (visibilitychange) y cada 60 segundos, en lugar de esperar solo a la navegación.
 
